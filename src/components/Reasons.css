@@ -1,0 +1,48 @@
+.reasons-section {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(./images/reasons-bg-img.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5rem;
+  padding: 10rem 5rem;
+}
+
+.reason {
+  width: 35rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.reason:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.active-reason {
+  border-color: var(--color-primary);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-8px) scale(1.02);
+}
+
+.reason-title {
+  color: var(--color-white);
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.reason-description {
+  font-size: 1.4rem;
+  color: var(--color-grey);
+  line-height: 2;
+  font-weight: 200;
+}

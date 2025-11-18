@@ -1,63 +1,74 @@
-import "./Header.css"
-import { FaPhoneAlt } from "react-icons/fa";
-import { FaTelegramPlane } from "react-icons/fa";
-import horse from "../assets/images/horse.png"
+import { useState } from "react";
+import "./Header.css";
+import { FaPhoneAlt, FaBars, FaTimes, FaTelegramPlane } from "react-icons/fa";
+import horse from "../assets/images/horse.png";
+import NavItem from "./NavItem";
 
-function Header() {
+type HeaderProps = {
+  email?: string;
+  phone?: string;
+  logoText?: string;
+  navLinks?: { label: string; link: string }[];
+};
+
+export default function Header({
+  email = "info@horseclub.com",
+  phone = "+254785359751",
+  logoText = "horse club",
+  navLinks = [
+    { label: "home", link: "#home" },
+    { label: "about us", link: "#about" },
+    { label: "services", link: "#services" },
+    { label: "why us", link: "#reasons" },
+    { label: "team", link: "#team" },
+    { label: "blog", link: "#blog" },
+  ],
+}: HeaderProps) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
+
   return (
     <header className="header">
+      {/* Top Section */}
       <div className="header-top">
-        {/* email address */}
         <div className="header-contact">
           <span className="header-contact-icon">
             <FaTelegramPlane />
           </span>
-          <p className="header-contact-text">info@horseclub.com</p>
+          <p className="header-contact-text">{email}</p>
         </div>
-        {/* end of email address */}
 
-        {/* logo */}
-      <div className="logo">
-        <img src={horse} alt="logo" />
-        <p className="logo-text">horse club</p>
-      </div>
-      {/* end of logo */}
+        <div className="logo">
+          <img src={horse} alt="logo" />
+          <p className="logo-text">{logoText}</p>
+        </div>
 
-      {/* phone number */}
-      <div className="header-contact">
-        <p className="header-contact-text">+254785359751</p>
-        <span className="header-contact-icon">
-          <FaPhoneAlt />
-        </span>
+        <div className="header-contact">
+          <p className="header-contact-text">{phone}</p>
+          <span className="header-contact-icon">
+            <FaPhoneAlt />
+          </span>
+        </div>
       </div>
-      {/* end of phone number */}
-      </div>
+
+      {/* Bottom Navigation */}
       <div className="header-bottom">
-        <nav>
+        {/* Mobile Menu Toggle */}
+        <button className="menu-btn" onClick={toggleMenu}>
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+
+        <nav className={menuOpen ? "nav open" : "nav"}>
           <ul className="nav-list">
-            <li nav-list-item>
-              <a href="#home" className="nav-list-item-link">home</a>
-            </li>
-            <li nav-list-item>
-              <a href="#about" className="nav-list-item-link">about us</a>
-            </li>
-            <li nav-list-item>
-              <a href="#services" className="nav-list-item-link">services</a>
-            </li>
-            <li nav-list-item>
-              <a href="#reasons" className="nav-list-item-link">why us</a>
-            </li>
-            <li nav-list-item>
-              <a href="#team" className="nav-list-item-link">team</a>
-            </li>
-            <li nav-list-item>
-              <a href="#blog" className="nav-list-item-link">blog</a>
-            </li>
+            {navLinks.map((item) => (
+              <NavItem key={item.label} label={item.label} link={item.link} />
+            ))}
           </ul>
         </nav>
       </div>
     </header>
-  )
+  );
 }
 
-export default Header;
+

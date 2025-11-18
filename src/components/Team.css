@@ -1,0 +1,126 @@
+.team-section {
+  padding: 10rem 2rem;
+  background-image: repeating-linear-gradient(
+    to bottom right,
+    var(--color-grey-light),
+    var(--color-grey-lighter) 40px
+  );
+}
+
+.title {
+  text-align: center;
+}
+
+.title-sub {
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+}
+
+.title-main {
+  font-size: 3rem;
+  text-transform: capitalize;
+  margin-bottom: 5rem;
+}
+
+.team-members-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.team-member-card {
+  width: 28rem;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var(--color-white);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.team-member-image-wrapper {
+  height: 20rem;
+  overflow: hidden;
+}
+
+.team-member-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.team-member-card:hover .team-member-image {
+  transform: scale(1.1);
+}
+
+.team-member-information {
+  padding: 1.5rem 1rem;
+}
+
+.team-member-name {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--color-black);
+}
+
+.team-member-position {
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: var(--color-grey);
+  margin-bottom: 1rem;
+}
+
+.team-member-socials {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.team-member-social-url {
+  --team-member-social-url-size: 4rem;
+  color: var(--color-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-primary);
+  width: var(--team-member-social-url-size);
+  height: var(--team-member-social-url-size);
+  font-size: 1.8rem;
+  border-radius: 50%;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.team-member-social-url:hover {
+  transform: scale(1.2);
+  background-color: var(--color-primary-dark);
+}
+
+@media screen and (max-width: 900px) {
+  .team-member-card {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .team-member-card {
+    width: 100%;
+  }
+
+  .title-main {
+    font-size: 2.4rem;
+  }
+}

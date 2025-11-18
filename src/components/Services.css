@@ -1,0 +1,131 @@
+.services-section {
+  background-color: var(--color-grey-light);
+  padding: 10rem 2rem;
+}
+
+.title {
+  text-align: center;
+}
+
+.title-sub {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  letter-spacing: 2px;
+}
+
+.title-main {
+  font-size: 3rem;
+  text-transform: capitalize;
+  margin-top: 0.5rem;
+}
+
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 3rem;
+  margin-top: 5rem;
+  justify-items: center;
+}
+
+.service-card {
+  width: 100%;
+  max-width: 30rem;
+  background-color: var(--color-white);
+  padding: 2rem 1.5rem 3rem 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+
+.service-card:hover {
+  background-color: var(--color-primary);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.service-card-img-wrapper {
+  --service-image-wrapper-size: 12rem;
+  width: var(--service-image-wrapper-size);
+  height: var(--service-image-wrapper-size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-grey-lighter);
+  margin: 0 auto 1.5rem auto;
+  clip-path: circle(50% at 50% 50%);
+  transition: all 0.4s ease;
+}
+
+.service-card:hover .service-card-img-wrapper {
+  background-color: var(--color-white);
+}
+
+.service-image {
+  width: 6rem;
+  transition: transform 0.4s ease;
+}
+
+.service-card:hover .service-image {
+  transform: scale(1.2);
+}
+
+.service-title {
+  font-size: 2rem;
+  text-transform: capitalize;
+  margin: 1rem 0;
+  transition: color 0.4s ease;
+}
+
+.service-card:hover .service-title {
+  color: var(--color-white);
+}
+
+.service-description {
+  font-size: 1.4rem;
+  line-height: 2;
+  color: var(--color-grey);
+  transition: color 0.4s ease;
+}
+
+.service-card:hover .service-description {
+  color: var(--color-white);
+}
+
+@media screen and (max-width: 900px) {
+  .services-container {
+    gap: 2rem;
+  }
+
+  .service-card {
+    padding: 1.5rem 1rem 2.5rem 1rem;
+  }
+
+  .service-title {
+    font-size: 1.8rem;
+  }
+
+  .service-description {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .title-main {
+    font-size: 2.5rem;
+  }
+
+  .title-sub {
+    font-size: 1.3rem;
+  }
+
+  .service-card-img-wrapper {
+    --service-image-wrapper-size: 10rem;
+  }
+
+  .service-image {
+    width: 5rem;
+  }
+}
